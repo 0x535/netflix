@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix - Maintenance</title>
+  <link rel="icon" href="./images/iconlogo.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #141414;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .header {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .header img {
+      width: 150px;
+      height: auto;
+    }
+
+    .maintenance-message {
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    .maintenance-message h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .maintenance-message p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .spinner {
+      border: 8px solid rgba(255, 255, 255, 0.2);
+      border-top: 8px solid #e50914;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 1px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px 0;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+      color: #ddd;
+    }
+
+    @media (max-width: 480px) {
+      .maintenance-message h1 {
+        font-size: 24px;
+      }
+
+      .maintenance-message p {
+        font-size: 16px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border-width: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="https://www.netflix.com/au/"><img src="./images/logo_2.png" alt="Netflix Logo"></a>
+  </div>
+
+  <div class="maintenance-message">
+    <h1>Sorry, we are down for maintenance.</h1>
+    <p>We apologies for this inconvenience. Please check back soon.</p>
+  </div>
+
+  <div class="footer">
+    <div>
+      <a href="https://help.netflix.com/en">Questions? Contact us.</a>
+    </div>
+    <div style="margin-top: 10px;">
+      <a href="https://help.netflix.com/en">FAQ</a>
+      <a href="https://help.netflix.com/en">Help Centre</a>
+      <a href="https://brand.netflix.com/en/terms/">Terms of Use</a>
+      <a href="https://help.netflix.com/en/node/100628">Privacy</a>
+    </div>
+  </div>
+</body>
+</html>

